@@ -10,13 +10,12 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Set artifact path
-      run: echo "BIN_FILE_PATH=$(swift build --show-bin-path)" >> $GITHUB_ENV
+    - uses: MaxDesiatov/swift-windows-action@v1
+      with:
+        shell-action: swift build; echo "BIN_FILE_PATH=$(swift build --show-bin-path)" >> $GITHUB_ENV
     - name: Print bin path
-      run: echo "${{ env.BIN_FILE_PATH }}"; ls
+      run: ls; echo "${{ env.BIN_FILE_PATH }}"
