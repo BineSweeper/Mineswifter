@@ -1,3 +1,5 @@
 # Mineswifter
 
-A description of this package.
+Play Minesweeper from your terminal. Supports singleplayer only lol
+
+Built with ❤️ using Swift
