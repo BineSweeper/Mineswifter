@@ -63,6 +63,11 @@ public final class Game {
         }
         if count == (width * height) - mineCount {
             self.isWon = true
+            for i in 0..<self.height {
+                for j in 0..<self.width {
+                    self.slots[i][j].reveal()
+                }
+            }
             stop()
         }
     }
@@ -86,9 +91,7 @@ public final class Game {
             self.isWon = false
             for i in 0..<self.height {
                 for j in 0..<self.width {
-                    if self.slots[i][j].isMine {
-                        self.slots[i][j].reveal()
-                    }
+                    self.slots[i][j].reveal()
                 }
             }
             stop()
