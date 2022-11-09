@@ -1,0 +1,22 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: swift build -v
+    - name: Set artifact path
+      run: echo "BIN_FILE_PATH=$(swift build --show-bin-path)" >> $GITHUB_ENV
+    - name: Print bin path
+      run: echo "${{ env.BIN_FILE_PATH }}"; ls
