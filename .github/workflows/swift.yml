@@ -18,4 +18,4 @@ jobs:
       with:
         shell-action: swift build; echo "BIN_FILE_PATH=$(swift build --show-bin-path)" >> $GITHUB_ENV
     - name: Print bin path
-      run: ls .build; echo "${{ env.BIN_FILE_PATH }}"
+      run: ls .build\artifacts; echo "${{ env.BIN_FILE_PATH }}"
